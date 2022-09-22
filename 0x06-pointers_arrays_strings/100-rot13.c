@@ -1,34 +1,29 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * main - Entry point
- * Description: adds a line in the code and uses printf
- * Return: 0
+ * rot13 - encodes a string using rot13
+ * @s: input string
+ * Return: the pointer to dest
  */
 
-int main(void)
+char *rot13(char *s)
 {
-	int n;
-	int a[5];
-	int *p;
+	int count = 0, i;
+	char alphabeth[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	a[2] = 1024;
-	p = &n;
+	while (*(s + count) != '\0')
+	{
+		for (i = 0; i < 52; i++)
+		{
+			if (*(s + count) == alphabeth[i])
+			{
+				*(s + count) = rot13[i];
+				break;
+			}
+		}
+		count++;
+	}
 
-	/*
-	 * write your line of code here...
-	 * Remember:
-	 * - you are not allowed to use a
-	 * - you are not allowed to modify p
-	 * - only one statement
-	 * - you are not allowed to code anything else than this line o code
-	 */
-
-	p[5]  = 98;
-
-	/* ... so that this prints 98\n */
-
-	printf("a[2] = %d\n", a[2]);
-	return (0);
+	return (s);
 }
