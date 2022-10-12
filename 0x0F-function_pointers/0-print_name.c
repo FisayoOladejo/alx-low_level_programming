@@ -5,7 +5,6 @@
  * @f: the function to send the name to
  * Return: nothing
  */
-
 void print_name(char *name, void (*f)(char *))
 {
 	if (!name || !f)
